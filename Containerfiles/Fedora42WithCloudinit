@@ -1,0 +1,9 @@
+FROM quay.io/fedora/fedora-bootc:42
+
+RUN dnf -y install cloud-init && \
+    ln -s ../cloud-init.target /usr/lib/systemd/system/default.target.wants && \
+    dnf clean all
+
+
+
+# podman run -it --rm --name fedora-bootc quay.io/fedora/fedora-bootc:42 /bin/bash
